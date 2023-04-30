@@ -1,10 +1,5 @@
 .banner {
-    display: none;
     position: relative;
-
-    @media (max-width: 1386px) {
-        display: block;
-    }
 
     &__caption {        
         position: relative;
@@ -206,13 +201,12 @@
     }
 
     &__logo {
-        float: right;
-
-        @media (max-width: 1048px) {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-        }
+        position: absolute;
+        right: 30px;
+        bottom: 100px;        
+        border-radius: 50%;
+        transition: all 2s;
+        cursor: pointer;
     }
 
     &__bar {        
@@ -225,83 +219,93 @@
         gap: 82px;
         background-color: #000;
         border: 1px solid #D9D9D9;
+        transition: all .65s ease-in-out;
 
         @media (max-width: 1048px) {
-            width: 240px;
             gap: 22px;
         }
 
         &--top {
-            top: -1px;
+            top: -2px;
             right: -1px;
             border-radius: 0px 0px 0px 30px;
-            border-top-color: #000;
-            border-right: #000;
+            border-top-color: transparent;
+            border-right: transparent;
 
-            @media (max-width: 1048px) {
-                display: none;
+            &::before {
+                @include pseudo;
+                @include corner;
+
+                top: 0px;
+                left: -40px;
             }
+
+            &::after {
+                @include pseudo;
+                @include corner;
+
+                top: 56px;
+                right: 0;
+            }
+    
         }
 
         &--bottom {
             bottom: -1px;
             right: -1px;
             border-radius: 30px 0px 0px 0px;
-            border-bottom-color: #000;
-            border-right-color: #000;
+            border-bottom-color: transparent;
+            border-right-color: transparent;
+
+            &::before {
+                @include pseudo;
+                @include corner;
+
+                top: 25px;
+                left: -31px;
+                transform: rotate(90deg);
+            }
+
+            &::after {
+                @include pseudo;
+                @include corner;
+
+                top: -32px;
+                right: -8px;
+                transform: rotate(90deg);
+            }
         }
     }
 }
 
-.banner__masked,
-.banner__border {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
-.banner__masked {
-    z-index: -1;
-}
-
-.banner__border {
-    z-index: 1;
-}
-
-.banner--large {
-    display: block;
-    @media (max-width: 1386px) {
-        display: none;
+.banner--bars {
+    .banner__bar {
+        opacity: 0;
     }
 
-    .banner__content {
-        border: none;
-        background-image: unset;
-    }
-    
-    .banner__button {
-        z-index: 3;
+    .banner__bar--top{
+        // transform: translateY(-1500px);
+        
     }
 
-    .banner__bar {  
-        z-index: 3;
-        border: unset;        
+    .banner__bar--bottom {
+        // transform: translateY(1500px);
+    }
 
-        &--top {
-            top: 0;
-            right: 0;
-        }
-
-        &--bottom {
-            bottom: 0;
-            right: 0;
-        }
+    .banner__logo {
+        bottom: 30px;
     }
 }
 
 @media (hover: hover) {
+
+    .banner__logo {
+
+        &:hover {
+            transform: rotate(360deg);
+            box-shadow: 0px 0px 20px 10px rgba(0, 0, 0, 0.2);
+        }
+    }
 
     .banner__icon {
         transition: all .3s ease;
@@ -318,8 +322,7 @@
         &:hover{
             opacity: .7;
         }
-    }    
-   
+    }       
     
     .banner__toggle,
     .banner__stop {
@@ -332,4 +335,5 @@
             opacity: 1;
         }
     }
+    
 }
