@@ -201,12 +201,24 @@
     }
 
     &__logo {
+        z-index: 5;
         position: absolute;
         right: 30px;
         bottom: 100px;        
         border-radius: 50%;
         transition: all 2s;
         cursor: pointer;
+    }
+
+    &__bars {
+        z-index: 4;
+        position: absolute;
+        top: -1px;
+        right: -1px;
+        width: 101%;
+        height: 517px;
+        overflow: hidden;
+        
     }
 
     &__bar {        
@@ -219,7 +231,7 @@
         gap: 82px;
         background-color: #000;
         border: 1px solid #D9D9D9;
-        transition: all .65s ease-in-out;
+        transition: all 2s ease-in-out;
 
         @media (max-width: 1048px) {
             gap: 22px;
@@ -280,16 +292,16 @@
 
 .banner--bars {
     .banner__bar {
-        opacity: 0;
+        // opacity: 0;
     }
 
     .banner__bar--top{
-        // transform: translateY(-1500px);
+        transform: translateY(-1500px);
         
     }
 
     .banner__bar--bottom {
-        // transform: translateY(1500px);
+        transform: translateY(1500px);
     }
 
     .banner__logo {
