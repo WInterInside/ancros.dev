@@ -138,8 +138,7 @@
         font-weight: 700;
         background-color: #fff;
         padding: 18px 30px;
-        border: 1px solid #FFFFFF;
-        border-radius: 0px 20px 20px 32px;
+        border-radius: 0 20px 20px 32px;
     }
 
     &__controls {
@@ -153,7 +152,7 @@
         background-color: #000;
         left: calc(50% - 81px);
         bottom: -20px;
-        border: 1px solid #FFFFFF;
+        border: 1px solid #fff;
         border-radius: 30px;
     }
 
@@ -230,7 +229,7 @@
         justify-content: center;
         gap: 82px;
         background-color: #000;
-        border: 1px solid #D9D9D9;
+        border: 0.5px solid #D9D9D9;
         transition: all 1.5s ease;
 
         @media (max-width: 1048px) {
@@ -238,52 +237,49 @@
         }
 
         &--top {
-            top: 0px;
+            top: 0;
             right: 0;
-            border-radius: 0px 0px 0px 30px;
+            border-radius: 0 0 0 30px;
             border-top-color: transparent;
             border-right-color: transparent;
 
             &::before {
                 @include pseudo;
-                @include corner;
+                @include corner-top;
 
-                left: -29px;
-                top: 0px;
+                left: -40px;
+                top: -1px;
             }
 
             &::after {
                 @include pseudo;
-                @include corner;
-
-                right: 0px;
-                bottom: -29px;
-            }
-    
+                @include corner-top;
+                right: -1px;
+                bottom: -25px;
+            }    
         }
 
         &--bottom {
-            bottom: -2px;
-            right: -1px;
-            border-radius: 30px 0px 0px 0px;
+            bottom: 0;
+            right: -2px;
+            border-radius: 30px 0 0 0;
             border-bottom-color: transparent;
             border-right-color: transparent;
 
             &::before {
                 @include pseudo;
-                @include corner;
+                @include corner-bottom;
 
-                left: -30px;
-                bottom: 1px;
-                transform: rotate(90deg);
+                bottom: 0;
+                left: -40px;
             }
 
             &::after {
                 @include pseudo;
-                @include corner;
+                @include corner-bottom;
+
+                top: -25px;
                 right: 1px;
-                top: -29px;
-                transform: rotate(90deg);
             }
         }
     }
