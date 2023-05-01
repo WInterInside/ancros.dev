@@ -247,7 +247,7 @@
                 @include pseudo;
                 @include corner-top;
 
-                left: -40px;
+                left: -50%;
                 top: -1px;
             }
 
@@ -255,8 +255,8 @@
                 @include pseudo;
                 @include corner-top;
 
-                right: -1px;
-                bottom: -25px;
+                right: -2px;
+                bottom: -30px;
             }    
         }
 
@@ -272,15 +272,15 @@
                 @include corner-bottom;
 
                 bottom: 0;
-                left: -40px;
+                left: -50%;
             }
 
             &::after {
                 @include pseudo;
                 @include corner-bottom;
 
-                top: -25px;
-                right: 1px;
+                top: -30px;
+                right: 0px;
             }
         }
     }
@@ -288,11 +288,11 @@
 
 .banner--bars {
     .banner__bar--top{
-        transform: translateY(-300px);        
+        transform: translate(-1px, -57px);       
     }
 
     .banner__bar--bottom {
-        transform: translateY(300px);
+        transform: translate(-1px, 56px);    
     }
 
     .banner__logo {
